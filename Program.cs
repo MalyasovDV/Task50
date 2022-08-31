@@ -1,31 +1,31 @@
-﻿void ArrayGeneration(ref int[,] array)
+﻿void MatrixGeneration(ref int[,] matrix)
 {
     Random rnd = new Random();
-    for(int i = 0; i < array.GetLength(0); ++i)
-        for (int j = 0; j < array.GetLength(1); ++j)
-            array[i,j] = rnd.Next(-10,10);
+    for(int i = 0; i < matrix.GetLength(0); ++i)
+        for (int j = 0; j < matrix.GetLength(1); ++j)
+            matrix[i,j] = rnd.Next(-10,10);
 }
 
-void ArrayOutput(int[,] array)
+void MatrixOutput(int[,] matrix)
 {
     Console.WriteLine("\n Массив:");
-    for(int i = 0; i < array.GetLength(0); ++i)
+    for(int i = 0; i < matrix.GetLength(0); ++i)
         {
-            for (int j = 0; j < array.GetLength(1); ++j)
-                Console.Write(array[i,j] + " ");
+            for (int j = 0; j < matrix.GetLength(1); ++j)
+                Console.Write(matrix[i,j] + " ");
             Console.WriteLine();
         }
 }
 
-void CheckPosition(int index1, int index2, ref int[,] array)
+void CheckPosition(int index1, int index2, ref int[,] matrix)
 {
     try
     {
-        Console.WriteLine("Элемент на позиции [{0};{1}]: {2}", index1, index2, array[index1,index2]);
+        Console.WriteLine("\nЭлемент на позиции [{0};{1}]: {2}", index1, index2, matrix[index1,index2]);
     }
     catch
     {
-        Console.WriteLine("Элемента на позиции [{0};{1}] не существует", index1, index2);
+        Console.WriteLine("\nЭлемента на позиции [{0};{1}] не существует", index1, index2);
     }
 }
 
@@ -33,14 +33,14 @@ Console.WriteLine("Введите размерность массива(стро
 
 int m = int.Parse(Console.ReadLine());
 int n = int.Parse(Console.ReadLine());
-int[,] array= new int[m,n];
+int[,] matrix= new int[m,n];
 
-ArrayGeneration(ref array);
-ArrayOutput(array);
+MatrixGeneration(ref matrix);
+MatrixOutput(matrix);
 
 Console.WriteLine("\n Введите позицию элемента в массиве");
 
 m = int.Parse(Console.ReadLine());
 n = int.Parse(Console.ReadLine());
 
-CheckPosition(m,n,ref array);
+CheckPosition(m,n,ref matrix);
